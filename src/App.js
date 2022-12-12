@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+const Counter = ({ initialValue = 0, one = 1 }) => {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(count + one);
+  return <button onClick={increment}>{count}</button>;
+};
 
 const App = () => {
-  const [state, setState] = useState({ name: "Alex", age: "" });
-  console.log(state);
-
-  useEffect(() => {
-    setState((prevState) => ({ ...prevState, age: 25 }));
-  }, []);
-  // [] is the dependency array
-
-  return <div> Hello World! </div>;
+  return <Counter />;
 };
 
 export default App;
